@@ -29,8 +29,14 @@
    homeworkContainer.appendChild(newDiv);
  */
 
-import { loadAndSortTowns } from './functions';
-import './towns.html';
+//import { loadAndSortTowns } from './functions';
+//import './towns.html';
+
+function loadAndSortTowns() {
+  return fetch('https://raw.githubusercontent.com/smelukov/citiesTest/master/cities.json')
+    .then((res) => res.json())
+    .then((towns) => towns.sort((a, b) => a.name.localeCompare(b.name)));
+}
 
 const homeworkContainer = document.querySelector('#homework-container');
 
@@ -115,4 +121,4 @@ function updateFilter(filterValue) {
 
 tryToLoad();
 
-export { loadTowns, isMatching };
+// export { loadTowns, isMatching };
